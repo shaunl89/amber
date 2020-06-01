@@ -1,0 +1,10 @@
+<h1>Meeting rooms</h1>
+
+<table>
+  <% @rooms.each do |room| %>
+    <tr>
+      <td><%= room.name %></td>
+      <td><%= link_to 'Show', room_bookings_path(room) %></td>
+    </tr>
+  <% end %>
+</table>
