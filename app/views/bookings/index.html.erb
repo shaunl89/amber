@@ -1,1 +1,33 @@
-<h1>bookings index</h1>
+<h1>Bookings for <%= @room.name %></h1>
+
+<% if @bookings.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Booked by</th>
+        <th>From</th>
+        <th>To</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.name %></td>
+        <td><%= booking.start %></td>
+        <td><%= booking.end %></td>
+        <td><%= link_to 'Edit', edit_room_booking_path(@room.id, booking.id) %></td>
+        <td><%= link_to 'Delete', room_booking_path(@room.id, booking.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no bookings for this room yet!</p>
+<% end %>
+
+<div>
+  <%= link_to 'Make a booking', new_room_booking_path %>
+</div>
+<div>
+  <%= link_to 'Back', rooms_path %>
+</div>

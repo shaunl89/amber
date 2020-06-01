@@ -4,8 +4,8 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.datetime :start
       t.datetime :end
 
-      t.references :user, foreign_key: true
-      t.references :room, foreign_key: true
+      t.references :user, index: true
+      t.references :room, index: true
       t.timestamps
     end
   end
