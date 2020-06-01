@@ -33,13 +33,13 @@ class BookingsController < ApplicationController
 
   def update
     begin
-      @room = Room.find(params[:room_id])
       booking = current_user.bookings.find(params[:id])
       booking_params = params.require(:booking).permit(:start, :end)
       booking.update(booking_params)
+      flash[:notice] = 'Booking has been successfully updated'
       redirect_to room_bookings_path
     rescue
-      flash[:notice] = 'Not allowed to edit bookings you did not make'
+      flash[:notice] = 'Not allowed to delete a booking you did not make'
       redirect_to room_bookings_path
     end
   end
@@ -48,6 +48,7 @@ class BookingsController < ApplicationController
     begin
       booking = current_user.bookings.find(params[:id])
       booking.destroy
+      flash[:notice] = 'Booking deleted'
       redirect_to room_bookings_path
     rescue
       flash[:notice] = 'Not allowed to delete a booking you did not make'

@@ -1,5 +1,9 @@
 <h1>Edit booking for <%= @room.name %></h1>
 
-<%= render 'form' %>
+<%= form_for @booking, url: room_booking_path do |form| %>
+
+  <%= render partial: 'form', locals: { f: form } %>
+
+<% end %>
 
 <%= link_to 'Back', room_bookings_path %>
