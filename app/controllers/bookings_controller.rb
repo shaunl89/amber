@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking has been successfully updated'
       redirect_to room_bookings_path
     rescue
-      flash[:notice] = 'Not allowed to delete a booking you did not make'
+      flash[:alert] = 'Not allowed to delete a booking you did not make'
       redirect_to room_bookings_path
     end
   end
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking deleted'
       redirect_to room_bookings_path
     rescue
-      flash[:notice] = 'Not allowed to delete a booking you did not make'
+      flash[:alert] = 'Not allowed to delete a booking you did not make'
       redirect_to room_bookings_path
     end
   end
