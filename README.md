@@ -1,2 +1,2 @@
 ##### ERD
-![](/readme_images/erd.png)
+![](/readme_images/ERD.png)
