@@ -8,7 +8,7 @@ end
 # Custom installed gems
 gem 'pry'
 gem 'devise'
-gem 'bootstrap', '~> 4.0.0' 
+gem 'bootstrap', '~> 4.3.1' 
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
